@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    min-height: 100vh;
+    background-color: #fbe4d8;
+    background-image: linear-gradient(#fbe4d8, #dfb6b2)
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    box-shadow: 1px 1px 7px 0.5px;
+    background-color:#854f6c; 
+    padding: 50px;
+}
+
+.forms{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    flex-direction: column;
+    white-space: nowrap;
+}
+.cabecalhoCadastro{
+    border-radius: 10px 10px 0px 0px;
+    background-color: #854f6c;
+    display: flex;
+    flex-direction: row;
+    margin-top: 7%;
+    justify-content: space-around;
+    width: 70%;
+    height: 30px;
+    align-items: center;
+}
+.formsInputs, .modal-form{
+    height: 400px;
+    width: 100%;
+    background-color: #fbe4d8;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+}
