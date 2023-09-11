@@ -1,10 +1,11 @@
-// CRUD - CREATE READ UPDATE DELETE
-
+// lOCAL STORAGE
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_client')) ?? [] 
 const setLocalStorage = (dbClient) => localStorage.setItem("db_client", JSON.stringify(dbClient))
+
 // CRUD READ
 const readClinet =  () => getLocalStorage()
 
+// CRUD DELETE
 const deleteClient = (index) => {
     const dbClient = readClinet()
     dbClient.splice(index, 1)
@@ -26,7 +27,6 @@ const createClient = (client) => {
 }
 
 // Interaçao com o layout
-
 const createRow = (client, index) => {
     const newRow = document.createElement('tr')
     newRow.innerHTML = `
@@ -62,14 +62,34 @@ const isValueFields = () => {
 }
 
 // Botões editar excluir
+const fillFields = (client) =>{
+    document.getElementById('nome').value = client.nome
+    document.getElementById('pet').value = client.pet
+    document.getElementById('especie').value = client.especie
+    document.getElementById('idade').value = client.idade
+    document.getElementById('sexo').value = client.sexo
+    document.getElementById('nome').dataset.index = client.index
+}
+
+const editClient = (index) =>{
+    const client = readClinet()[index]
+    client.index = index
+    fillFields(client)
+}
+
 const editDelete = (event) =>{
     if (event.target.type == 'button'){
         const [action, index] = event.target.id.split('-')
-        console.log(action, index)
         if (action == 'edit'){
-            console.log ('Editando Pet')
+            editClient(index)
         }else{
-            console.log('Excluindo Pet')
+            const client = readClinet()[index]
+            const response = confirm(`Tem certeza que quer remover o Pet ${client.pet} cadastrado?`)
+            if (response){
+                deleteClient(index)
+                updateTable()
+                clearFields()
+            }
         }
     }
 }
@@ -90,10 +110,15 @@ const saveClient = () => {
             idade: document.getElementById('idade').value,
             sexo: document.getElementById('sexo').value
         }
-        createClient(client)
-        updateTable()
-        clearFields()
-        console.log("cadastrando cliente")
+        const index = document.getElementById('nome').dataset.index
+        if(index == 'new'){
+            createClient(client)
+            updateTable()
+            clearFields()
+        }else{
+            updateClient(index, client)
+            updateTable()
+        }
     }
 }
 // Events
@@ -103,5 +128,3 @@ document.getElementById('salvar')
     
 document.querySelector('#tableClient>tbody')
     .addEventListener('click', editDelete)
-
-
