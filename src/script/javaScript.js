@@ -1,14 +1,9 @@
 // CRUD - CREATE READ UPDATE DELETE
-const tempClient = {
-    nome: "fernanda",
-    pet: "mumu",
-    especie: "pato",
-    idade: "2 anos",
-    sexo: "M"
-}
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_client')) ?? [] 
 const setLocalStorage = (dbClient) => localStorage.setItem("db_client", JSON.stringify(dbClient))
+// CRUD READ
+const readClinet =  () => getLocalStorage()
 
 const deleteClient = (index) => {
     const dbClient = readClinet()
@@ -23,9 +18,6 @@ const updateClient = (index, client) => {
     setLocalStorage(dbClient)
 }
 
-// CRUD READ
-const readClinet =  () => getLocalStorage()
-
 // CRUD CREATE
 const createClient = (client) => {
     const dbClient = getLocalStorage()
@@ -33,12 +25,35 @@ const createClient = (client) => {
     setLocalStorage(dbClient)
 }
 
+// Interaçao com o layout
+const createRow = (client) => {
+    const newRow = document.createElement('tr')
+    newRow.innerHTML = `
+        <td>${client.nome}</td>
+        <td>${client.pet}</td>
+        <td>${client.especie}</td>
+        <td>${client.idade}</td>
+        <td>${client.sexo}</td>
+        <td>
+            <button>Editar</button>
+            <button>Excluir</button>
+        </td>
+        ` 
+    document.querySelector('#tableClient>tbody').appendChild(newRow)
+}
+const updateTable = () =>{
+    const dbClient = readClinet()
+    dbClient.forEach(createRow)
+}
+
+updateClient()
+
 // Events
 const isValueFields = () => {
     return document.getElementById('form').reportValidity()
 }
 
-// Interaçao com o layout
+
 
 // Limpar campos input
 
