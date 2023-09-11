@@ -10,6 +10,10 @@ body{
     background-image: linear-gradient(#fbe4d8, #dfb6b2)
 }
 
+h5, p{
+    font-family: 'Poppins', sans-serif;
+}
+
 .cabecalho{
     display: flex;
     justify-content: space-around;
@@ -39,7 +43,7 @@ body{
     align-items: center;
 }
 .formsInputs, .modal-form{
-    padding: 25px;
+    padding: 10px;
     height: 100%;
     width: 100%;
     background-color: #fbe4d8;
@@ -53,6 +57,31 @@ body{
 .modal-form{
     border-right: 5px solid #854f6c;
 }
+
+.modal-field{
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #ffffff;
+    height: 35px;
+    border: none;
+    width: 200px
+}
+
+#salvar{
+    margin-top: 5px;
+    border: none;
+    height: 35px;
+    width: 100px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+#salvar:hover{
+    background-color: #854f6c;
+    transition: 0.5s;
+}
+
 .formsCadastro{
     display: flex;
     flex-direction: row;
