@@ -4,27 +4,33 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+
 body{
     min-height: 100vh;
     background-color: #fbe4d8;
     background-image: linear-gradient(#fbe4d8, #dfb6b2)
 }
-
+main{
+    display: flex;
+    justify-content: center;
+}
 h3, h5, p, th, tr{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 th{
-    width: 200px;
+    width: 130px;
     height: 50px;
     background-color: #854f6c;
 }
 
 td{
-    width: 180px;
+    width: 100%;
     height: 30px;
     text-align: center;
     border-radius: 5px;
 }
+
 button{
     border: none;
     height: 35px;
@@ -32,6 +38,7 @@ button{
     background-color: #ffffff;
     border-radius: 5px;
 }
+
 button:hover{
     background-color: #854f6c;
     transition: 0.5s;
@@ -53,7 +60,9 @@ button:hover{
     margin: 30px;
     flex-direction: column;
     white-space: nowrap;
+    width: 70%;
 }
+
 .cabecalhoCadastro{
     border-radius: 10px 10px 0px 0px;
     background-color: #854f6c;
@@ -64,24 +73,27 @@ button:hover{
     height: 30px;
     align-items: center;
 }
+
 .cabecalhoCasdatroTitulo{
     margin-left: 7%;  
     margin-right: 40%;
 }
-.formsInputs, .modal-form{
+
+.formsInputs{
     padding: 10px;
-    height: 100%;
-    width: 100%;
-    background-color: #fbe4d8;
     display: flex;
-    align-items: start;
     flex-direction: column;
     gap: 10px;
-    border-radius: 0px 0px 0px 10px;
 }
 
 .modal-form{
     border-right: 5px solid #854f6c;
+    background-color: #fbe4d8;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 0px 0px 10px;
+    height: 100%;
+    width: 100%;
 }
 
 .modal-field{
@@ -97,11 +109,13 @@ button:hover{
 .formsCadastro{
     display: flex;
     flex-direction: row;
+    height: 470px;
+    width: 100%;
 }
 
 .formsResultado{
     background-color: #fbe4d8;
-    height: 600px;
+    height: 100%;
     width: 100%;
     border-radius: 0px 0px 10px 0px;
 }
@@ -110,8 +124,7 @@ button:hover{
     display: none;
 }
 
-@media screen and (min-width: 500px) and (max-width: 960px){
-    
+@media screen and (min-width: 300px) and (max-width: 960px){
     .cabecalhoimg1{
         display: none;
 }
@@ -158,10 +171,12 @@ button:hover{
         width: 100%;
         background-color: #854f6c;
         margin-bottom: 5px;
-        display: block;
     }
     .forms{
         white-space: normal;
     }
     
 }
+
+
+
